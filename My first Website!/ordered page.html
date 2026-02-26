@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ORDER COMPLETED</title>
+	<style>body{font-family:Segoe UI,Arial,Helvetica,sans-serif;margin:20px}</style>
+</head>
+<body>
+<a href="order air.html">Click me to go back</a><br>
+<br>
+<h1>Your order has been completed successfully!.. or maybe not idc if u got scammed...</h1>
+<h3>Thank you for shopping with us!</h3>
+<div id="orderSummary"></div>
+
+<script>
+function escapeHtml(s){
+	return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderOrderDetails(){
+	const params = new URLSearchParams(location.search);
+	if (!params.toString()){
+		document.getElementById('orderSummary').innerHTML = '<p>No order details were provided.</p>';
+		return;
+	}
+
+	const airType = params.get('airType') || '—';
+	const amount = params.get('amount') || '—';
+	const address = params.get('address') || '—';
+	const gender = params.get('gender') || '—';
+
+	const html = `
+		<h2>Order Summary</h2>
+		<ul>
+			<li><strong>Air Type:</strong> ${escapeHtml(airType)}</li>
+			<li><strong>Amount:</strong> ${escapeHtml(amount)}</li>
+			<li><strong>Address:</strong> ${escapeHtml(address)}</li>
+			<li><strong>Gender:</strong> ${escapeHtml(gender)}</li>
+		</ul>
+	`;
+	document.getElementById('orderSummary').innerHTML = html;
+}
+
+renderOrderDetails();
+</script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<style>
+body{
+	Background-color: #1900ff
+}
+</style>
+<html>
+<head>
+<title>Order Air MUHAHAHA</title>
+<style>
+/* Toggle switch styles */
+.switch{position:relative;display:inline-block;width:50px;height:28px;vertical-align:middle}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#ccc;transition:.3s;border-radius:28px}
+.slider:before{position:absolute;content:"";height:22px;width:22px;left:3px;bottom:3px;background:white;transition:.3s;border-radius:50%}
+.switch input:checked + .slider{background:#4caf50}
+.switch input:checked + .slider:before{transform:translateX(22px)}
+.agree-row{margin:12px 0;display:flex;align-items:center;gap:10px}
+.agree-text{font-size:14px;color:#333}
+</style>
+</head>
+<a href="index.html">Click me to go back</a>
+<br>
+<br>
+<br>
+<br>
+<p>
+<table border="1">
+	<tr>
+		<th>Types of air</th>
+		<th>Price(per gram)</th>
+	</tr>
+	<tr>
+		<td>Normal Oxygen</td>
+		<td>$0.10</td>
+	</tr>
+	<tr>
+		<td>Normal CO2</td>
+		<td>$0.02</td>
+
+	</tr>
+	<tr>
+		<td>Normal Nitrogen</td>
+		<td>$0.05</td>
+	</tr>
+	<tr>
+		<td>Normal Helium</td>
+		<td>$0.15</td>
+	</tr>
+	<tr>
+		<td>Normal Argon</td>
+		<td>$0.08</td>
+	</tr>
+	<tr>
+		<td>Normal Neon</td>
+		<td>$0.12</td>
+	</tr>
+	<tr>
+		<td>Normal Krypton</td>
+		<td>$0.20</td>
+	</tr>
+	<tr>
+		<td>Normal Xenon</td>
+		<td>$0.25</td>
+	</tr>
+	<tr>
+		<td>Normal Radon</td>
+		<td>$0.30</td>
+	</tr>
+	<tr>
+		<td>Normal Ozone</td>
+		<td>$0.18</td>
+	</tr>
+	<tr>
+		<td>Normal Sulfur Dioxide</td>
+		<td>$0.22</td>
+	</tr>
+	<tr>
+		<td>Normal Carbon Monoxide</td>
+		<td>$0.05</td>
+	</tr>
+	<tr>
+		<td>Normal Ammonia</td>
+		<td>$0.10</td>
+	</tr>
+	<tr>
+		<td>Normal Methane</td>
+		<td>$0.08</td>
+	</tr>
+	<tr>
+		<td>Normal Hydrogen</td>
+		<td>$0.12</td>
+	</tr>
+	<tr>
+		<td>Normal Ethane</td>
+		<td>$0.15</td>
+	</tr>
+	<tr>
+		<td>Normal Propane</td>
+		<td>$0.20</td>
+	</tr>
+	<tr>
+		<td>Normal Butane</td>
+		<td>$0.18</td>
+	</tr>
+</table>
+</p>
+<form action="ordered page.html" method="GET" onsubmit="return validateAndOrder()">
+	<label for="airType">enter Air TYPE</label>
+		<select name="airType" id="airType" required>
+			<option value="" disabled selected>Select an air type</option>
+			<option>Normal Oxygen</option>
+			<option>Normal CO2</option>
+			<option>Normal Nitrogen</option>
+			<option>Normal Helium</option>
+			<option>Normal Argon</option>
+			<option>Normal Neon</option>
+			<option>Normal Krypton</option>
+			<option>Normal Xenon</option>
+			<option>Normal Radon</option>
+			<option>Normal Ozone</option>
+			<option>Normal Sulfur Dioxide</option>
+			<option>Normal Carbon Monoxide</option>
+			<option>Normal Ammonia</option>
+			<option>Normal Methane</option>
+			<option>Normal Hydrogen</option>
+			<option>Normal Ethane</option>
+			<option>Normal Propane</option>
+			<option>Normal Butane</option>
+		</select><br>
+	<label for="amount">enter Amount of air(e.g 100)</label>
+		<input name="amount" type="number" id="amount" required min="1" max="10000"><br>
+	<label for="address">enter address</label>
+		<input name="address" type="text" id="address" required><br>
+	<label>Gender:</label>
+	<input type="radio" name="gender" id="male" value="Male" required>
+	<label for="male">Male</label>
+	<input type="radio" name="gender" id="female" value="Female" required>
+	<label for="female">Female</label><br>
+
+	<div class="agree-row">
+		<label class="switch">
+			<input type="checkbox" id="agree" name="agree">
+			<span class="slider"></span>
+		</label>
+		<label for="agree" class="agree-text">I agree I might get scammed and not my fault.</label>
+	</div>
+
+		<button type="submit" id="orderBtn">Order</button>
+	</form>
+
+	<script>
+	function validateAndOrder() {
+		const select = document.getElementById('airType');
+		const val = select.value;
+		if (!val) {
+			alert('Please select an air type from the list.');
+			select.focus();
+			return false;
+		}
+
+		const agree = document.getElementById('agree');
+		if (!agree || !agree.checked) {
+			alert('You must agree that you accept the risk before ordering.');
+			document.getElementById('agree').focus();
+			return false;
+		}
+		return true;
+	}
+	</script>
+	</html>
